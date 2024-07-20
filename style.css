@@ -1,0 +1,198 @@
+:root {
+  --dark-blue: rgb(27, 40, 49);
+  --medium-blue: rgb(61, 79, 93);
+  --medium-orange: rgb(175, 86, 62);
+  --blue: rgb(22, 184, 229);
+  --rose: rgb(235, 164, 145);
+  --text-light: rgb(241, 249, 255);
+  --text-dark: rgb(27, 27, 27);
+  --bg-light: rgb(245, 251, 255);
+  --white: rgb(255, 255, 255);
+
+  background-color: var(--bg-light);
+  color: var(--text-light);
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-title {
+  text-align: center;
+  padding: 20px 0;
+  background-color: var(--dark-blue);
+  border-radius: 5px;
+  margin: 10px;
+  width: 90%;
+}
+
+.aria-icon {
+  text-align: center;
+  background-image: url("/images/Aria.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.hogwards-icon {
+  text-align: center;
+  background-image: url("/images/hogwards.jpg"); 
+  background-position: center;
+  background-size: cover;
+}
+
+.card {
+  width: 650px;
+  height: 200px;
+  border: 3px solid var(--bg-light);
+  border-radius: 10px;
+  font-size: 30px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 2px 2px 2px var(--dark-blue);
+}
+
+.title {
+  width: 100%;
+  height: 100px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 2px var(--dark-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  justify-content: center;
+}
+
+.pj-recap {
+  display: flex;
+  justify-content: space-around;
+  color: var(--text-dark);
+  width: 100%;
+  margin: 20px 0;
+}
+
+.pj-recap article {
+  width: 150px;
+  height: 130px;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hogwards-color {
+  background-color: var(--medium-blue);
+  color: var(--text-light);
+}
+
+.hogwards-article {
+  border: 1px solid var(--medium-blue);
+  margin-bottom: 20px;
+}
+
+.hogwards-color-title {
+  background-color: var(--medium-blue);
+  color: var(--text-light);
+  text-shadow: 2px 2px 2px var(--text-dark);
+}
+
+.aria-color {
+  background-color: var(--rose);
+  color: var(--text-dark);
+}
+
+.aria-color-title {
+  background-color: var(--medium-orange);
+  color: var(--text-light);
+  text-shadow: 2px 2px 2px var(--text-dark);
+}
+
+.aria-article {
+  border: 1px solid var(--medium-orange);
+  margin-bottom: 20px;
+}
+
+.pj-recap h3 {
+  margin-bottom: 0;
+}
+
+.round {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: var(--white);
+  color: var(--text-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.card:hover {
+  border: 3px solid var(--blue);
+}
+
+.stats-section {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  color: var(--text-dark);
+  overflow-x: scroll;
+  max-height: calc(100% - 130px);
+  width: 90%;
+}
+
+.stats-section article {
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 45px;
+
+}
+
+.stats-section h3 {
+  grid-column: 1/4;
+  grid-row: 1/1;
+  margin: 0;
+  padding-left: 10px;
+  align-content: center;
+}
+
+.stats-section div {
+  grid-row: 2/5;
+  justify-self: center;
+  align-content: center;
+}
+
+.stats-section h4 {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.stats-section p {
+  margin: 5px 0;
+}
+
+.success {
+  color: green;
+}
+
+.fail {
+  color: red;
+}

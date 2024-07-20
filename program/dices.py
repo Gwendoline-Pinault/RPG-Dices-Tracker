@@ -1,0 +1,4 @@
+dices = []
+JeanDices = []
+ArtyomDices = []
+ManonDices = []
