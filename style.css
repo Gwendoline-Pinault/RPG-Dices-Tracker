@@ -70,7 +70,7 @@ body {
   margin: 0;
 }
 
-a {
+.link-card {
   text-decoration: none;
   color: inherit;
   display: flex;
@@ -108,6 +108,7 @@ a {
 
 .hogwards-color-title {
   background-color: var(--medium-blue);
+  border-radius: 3px 3px 0 0;
   color: var(--text-light);
   text-shadow: 2px 2px 2px var(--text-dark);
 }
@@ -120,6 +121,7 @@ a {
 .aria-color-title {
   background-color: var(--medium-orange);
   color: var(--text-light);
+  border-radius: 3px 3px 0 0;
   text-shadow: 2px 2px 2px var(--text-dark);
 }
 
@@ -195,4 +197,25 @@ a {
 
 .fail {
   color: red;
+}
+
+/* AFFICHAGE MOBILE */
+
+@media screen and (max-width: 700px){
+  .link-card {
+    width: 90%;
+  }
+
+  .pj-recap {
+    width: 90%;
+    margin-bottom: 10px;
+  }
+
+  .pj-recap article:nth-child(2n) {
+    margin: 0 10px;
+  }
+
+  .stats-section p {
+    font-size: 14px;
+  }
 }
