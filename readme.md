@@ -1,4 +1,6 @@
-# Programme de suivi des dés lancés dans des parties de jeux de rôle sous le système Aria
+# RPG Dices Tracker 
+
+Programme de suivi des dés lancés dans des parties de jeux de rôle sous le système Aria
 
 ## Descriptif
 Les dés lancés dans la partie sont notés manuellement dans le fichier dices.py.
