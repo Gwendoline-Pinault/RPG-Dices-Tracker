@@ -115,7 +115,7 @@ if (PathfinderPage != null) {
 
   // Création de la liste des récap de chaque partie par personnage
   PathfinderDates.forEach(date => {
-    const game = "pahtfinder";
+    const game = "pathfinder";
     const PathfinderGames = data["Pathfinder"]["games"];
     createGameStatInfos(pathfinderStatSection, date, game, PathfinderPersonnages, PathfinderGames);
   });

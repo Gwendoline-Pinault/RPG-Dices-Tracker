@@ -189,7 +189,7 @@ body {
 .stats-section article {
   border-radius: 5px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(1fr);
 }
 
 .stats-section h3 {
@@ -199,6 +199,10 @@ body {
   padding: 10px;
   padding-left: 20px;
   align-content: center;
+}
+
+#pathfinder-stats-section h3 {
+  grid-column: 1/5;
 }
 
 .stats-section div {
