@@ -114,9 +114,19 @@ if (PathfinderPage != null) {
   }
 
   // Création de la liste des récap de chaque partie par personnage
-  PathfinderDates.forEach(date => {
-    const game = "pathfinder";
-    const PathfinderGames = data["Pathfinder"]["games"];
-    createGameStatInfos(pathfinderStatSection, date, game, PathfinderPersonnages, PathfinderGames);
-  });
+  if (PathfinderDates.length === 0 ) {
+    const pathSection = document.getElementById('pathfinder-stats-section');
+    const title = document.createElement('h3');
+
+    title.textContent = "Pas encore de parties à ce jour.";
+    title.className = "info-title";
+    pathSection.append(title);
+
+  } else {
+    PathfinderDates.forEach(date => {
+      const game = "pathfinder";
+      const PathfinderGames = data["Pathfinder"]["games"];
+      createGameStatInfos(pathfinderStatSection, date, game, PathfinderPersonnages, PathfinderGames);
+    });
+  }
 }

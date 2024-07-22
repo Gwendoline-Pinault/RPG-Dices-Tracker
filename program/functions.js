@@ -20,7 +20,13 @@ export function createPJGlobalStat(personnage, section, game, globalAvg) {
 
   const pjStat = document.createElement('p');
   pjStat.className = "round";
-  pjStat.textContent = globalAvg;
+
+  if (isNaN(globalAvg)) {
+    pjStat.textContent = "-";
+  }
+  else {
+    pjStat.textContent = globalAvg;
+  }
 
   // dés 100 sur le système Aria
   if (game === "aria" || game === "hogwards") {
