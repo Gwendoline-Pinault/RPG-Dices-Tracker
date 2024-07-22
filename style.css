@@ -2,6 +2,8 @@
   --dark-blue: rgb(27, 40, 49);
   --medium-blue: rgb(61, 79, 93);
   --medium-orange: rgb(175, 86, 62);
+  --dark-purple: rgb(63, 20, 133);
+  --violet: rgb(149, 113, 223);
   --blue: rgb(22, 184, 229);
   --rose: rgb(235, 164, 145);
   --text-light: rgb(241, 249, 255);
@@ -42,6 +44,13 @@ body {
 .hogwards-icon {
   text-align: center;
   background-image: url("/images/hogwards.jpg"); 
+  background-position: center;
+  background-size: cover;
+}
+
+.pathfinder-icon {
+  text-align: center;
+  background-image: url("/images/pathfinder.jpg"); 
   background-position: center;
   background-size: cover;
 }
@@ -128,6 +137,23 @@ body {
 .aria-article {
   border: 1px solid var(--medium-orange);
   margin-bottom: 20px;
+}
+
+.pathfinder-color {
+  background-color: var(--violet);
+  color: var(--text-light);
+}
+
+.pathfinder-article {
+  border: 1px solid var(--dark-purple);
+  margin-bottom: 20px;
+}
+
+.pathfinder-color-title {
+  background-color: var(--violet);
+  border-radius: 3px 3px 0 0;
+  color: var(--text-light);
+  text-shadow: 2px 2px 2px var(--text-dark);
 }
 
 .pj-recap h3 {

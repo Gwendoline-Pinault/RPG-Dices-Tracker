@@ -22,11 +22,23 @@ export function createPJGlobalStat(personnage, section, game, globalAvg) {
   pjStat.className = "round";
   pjStat.textContent = globalAvg;
 
-  if (globalAvg > 50) {
-    pjStat.classList.add("fail");
+  // dés 100 sur le système Aria
+  if (game === "aria" || game === "hogwards") {
+    if (globalAvg > 50) {
+      pjStat.classList.add("fail");
+    }
+    else if (globalAvg < 50) {
+      pjStat.classList.add("success");
+    }
   }
-  else if (globalAvg < 50) {
-    pjStat.classList.add("success");
+  // Dés 20 sur le système Pathfinder
+  else if (game === "pathfinder") {
+    if (globalAvg < 10) {
+      pjStat.classList.add("fail");
+    }
+    else if (globalAvg > 10) {
+      pjStat.classList.add("success");
+    }
   }
 
   // Récupération de l'id de l'article créé pour ajouter le titre et les stats
@@ -34,7 +46,17 @@ export function createPJGlobalStat(personnage, section, game, globalAvg) {
   thisArticle.append(pjTitle);
   thisArticle.append(pjStat);
 }
-
+/**
+ * La fonction createGameStatInfos() sert à générer la liste des parties en récupérant les données du fichier JSON.
+ * Chaque partie affcihée comprend pour chaque joueur les statistiques suivantes : la moyenne de la partie, le nombre de réussites critiques, le nombre d'échecs critiques.
+ * Le programme tient compte du système de dés (100 sur Aria, 20 sur Pathfinder).
+ * 
+ * @param {string} section - id de la section contenant la liste des parties
+ * @param {string} date - Date de la partie
+ * @param {string} game - Nom du JDR pour le style (en minuscules)
+ * @param {array} personnages - Tableau de la liste des personnages de la partie
+ * @param {string} jdrGame - Nom du JDR du fichier JSON
+ */
 export function createGameStatInfos(section, date, game, personnages, jdrGame) {
   const gameArticle = document.createElement('article');
   gameArticle.className = game + "-article";
@@ -57,13 +79,26 @@ export function createGameStatInfos(section, date, game, personnages, jdrGame) {
 
     const pjAvg = document.createElement('p');
     const span = document.createElement('span');
+
+    // dés 100 sur le système Aria
+    if (game === "aria" || game === "hogwards") {
+      if (jdrGame[date][personnage]["moyenne"] > 50) {
+        span.className = "fail";
+      }
+      else if (jdrGame[date][personnage]["moyenne"] < 50) {
+        span.className = "success";
+      }
+    }
+    // Dés 20 sur le système Pathfinder
+    else if (game === "pathfinder") {
+      if (jdrGame[date][personnage]["moyenne"] < 10) {
+        span.className = "fail";
+      }
+      else if (jdrGame[date][personnage]["moyenne"] > 10) {
+        span.className = "success";
+      }
+    }
     
-    if (jdrGame[date][personnage]["moyenne"] > 50) {
-      span.className = "fail";
-    }
-    else if (jdrGame[date][personnage]["moyenne"] < 50) {
-      span.className = "success";
-    }
     span.textContent = jdrGame[date][personnage]["moyenne"];
 
     pjAvg.textContent = "Moyenne : ";
@@ -71,11 +106,9 @@ export function createGameStatInfos(section, date, game, personnages, jdrGame) {
 
     const pjCrit = document.createElement('p');
     pjCrit.textContent = "Echecs : " + jdrGame[date][personnage]["échecs"];
-    //pjCrit.className = "fail";
 
     const pjSuccess = document.createElement('p');
     pjSuccess.textContent = "Réussites : " + jdrGame[date][personnage]["réussites"];
-    //pjSuccess.className = "success";
 
     div.append(nameTitle);
     div.append(pjAvg);
