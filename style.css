@@ -246,8 +246,16 @@ body {
     margin-bottom: 10px;
   }
 
-  .pj-recap article:nth-child(2n) {
-    margin: 0 10px;
+  .pj-recap article {
+    margin: 0 5px;
+  }
+
+  .pj-recap article:first-child {
+    margin: 0 5px 0 0;
+  }
+
+  .pj-recap article:last-child {
+    margin: 0 0 0 5px;
   }
 
   .stats-section p {
