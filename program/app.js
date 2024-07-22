@@ -13,15 +13,15 @@ const HogwardsDates = [];
 const PathfinderDates = [];
 
 // liste des dates des parties
-for (let dates in data["Aria"]["parties"]) {
+for (let dates in data["Aria"]["games"]) {
   AriaDates.push(dates);
 }
 
-for (let dates in data["Poudlard"]["parties"]) {
+for (let dates in data["Poudlard"]["games"]) {
   HogwardsDates.push(dates);
 }
 
-for (let dates in data["Pathfinder"]["parties"]) {
+for (let dates in data["Pathfinder"]["games"]) {
   PathfinderDates.push(dates);
 }
 
@@ -52,7 +52,7 @@ if (ariaPage != null) {
   // Création de la liste des récap de chaque partie par personnage
   AriaDates.forEach(date => {
     const game = "aria";
-    const AriaGames = data["Aria"]["parties"];
+    const AriaGames = data["Aria"]["games"];
     createGameStatInfos(ariaStatSection, date, game, AriaPersonnages, AriaGames);
   });
 }
@@ -84,7 +84,7 @@ if (HogwardsPage != null) {
   // Création de la liste des récap de chaque partie par personnage
   HogwardsDates.forEach(date => {
     const game = "hogwards";
-    const HogwardsGames = data["Poudlard"]["parties"];
+    const HogwardsGames = data["Poudlard"]["games"];
     createGameStatInfos(hogwardsStatSection, date, game, HogwardsPersonnages, HogwardsGames);
   });
 }
@@ -116,7 +116,7 @@ if (PathfinderPage != null) {
   // Création de la liste des récap de chaque partie par personnage
   PathfinderDates.forEach(date => {
     const game = "pahtfinder";
-    const PathfinderGames = data["Pathfinder"]["parties"];
+    const PathfinderGames = data["Pathfinder"]["games"];
     createGameStatInfos(pathfinderStatSection, date, game, PathfinderPersonnages, PathfinderGames);
   });
 }

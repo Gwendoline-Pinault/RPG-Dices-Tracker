@@ -55,7 +55,7 @@ export function createPJGlobalStat(personnage, section, game, globalAvg) {
  * @param {string} date - Date de la partie
  * @param {string} game - Nom du JDR pour le style (en minuscules)
  * @param {array} personnages - Tableau de la liste des personnages de la partie
- * @param {string} jdrGame - Nom du JDR du fichier JSON
+ * @param {object} jdrGame - Données de la partie sélectionnée
  */
 export function createGameStatInfos(section, date, game, personnages, jdrGame) {
   const gameArticle = document.createElement('article');
@@ -77,40 +77,44 @@ export function createGameStatInfos(section, date, game, personnages, jdrGame) {
     const nameTitle = document.createElement('h4');
     nameTitle.textContent = personnage;
 
+    const nbDices = document.createElement('p');
+    nbDices.textContent = "Dés lancés : " + jdrGame[date][personnage]["dices"].length;
+
     const pjAvg = document.createElement('p');
     const span = document.createElement('span');
 
     // dés 100 sur le système Aria
     if (game === "aria" || game === "hogwards") {
-      if (jdrGame[date][personnage]["moyenne"] > 50) {
+      if (jdrGame[date][personnage]["average"] > 50) {
         span.className = "fail";
       }
-      else if (jdrGame[date][personnage]["moyenne"] < 50) {
+      else if (jdrGame[date][personnage]["average"] < 50) {
         span.className = "success";
       }
     }
     // Dés 20 sur le système Pathfinder
     else if (game === "pathfinder") {
-      if (jdrGame[date][personnage]["moyenne"] < 10) {
+      if (jdrGame[date][personnage]["average"] < 10) {
         span.className = "fail";
       }
-      else if (jdrGame[date][personnage]["moyenne"] > 10) {
+      else if (jdrGame[date][personnage]["average"] > 10) {
         span.className = "success";
       }
     }
     
-    span.textContent = jdrGame[date][personnage]["moyenne"];
+    span.textContent = jdrGame[date][personnage]["average"];
 
     pjAvg.textContent = "Moyenne : ";
     pjAvg.append(span);
 
     const pjCrit = document.createElement('p');
-    pjCrit.textContent = "Echecs : " + jdrGame[date][personnage]["échecs"];
+    pjCrit.textContent = "Echecs : " + jdrGame[date][personnage]["fail"];
 
     const pjSuccess = document.createElement('p');
-    pjSuccess.textContent = "Réussites : " + jdrGame[date][personnage]["réussites"];
+    pjSuccess.textContent = "Réussites : " + jdrGame[date][personnage]["success"];
 
     div.append(nameTitle);
+    div.append(nbDices);
     div.append(pjAvg);
     div.append(pjSuccess);
     div.append(pjCrit);

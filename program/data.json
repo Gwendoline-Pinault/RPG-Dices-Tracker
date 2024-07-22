@@ -67,10 +67,10 @@
         95
       ]
     },
-    "parties": {
+    "games": {
       "12/07/2024": {
         "Melinda": {
-          "d\u00e9s": [
+          "dices": [
             9,
             55,
             61,
@@ -80,12 +80,12 @@
             99,
             99
           ],
-          "moyenne": 75,
-          "r\u00e9ussites": 0,
-          "\u00e9checs": 2
+          "average": 75,
+          "success": 0,
+          "fail": 2
         },
         "Efard": {
-          "d\u00e9s": [
+          "dices": [
             6,
             7,
             20,
@@ -113,12 +113,12 @@
             92,
             97
           ],
-          "moyenne": 59,
-          "r\u00e9ussites": 0,
-          "\u00e9checs": 1
+          "average": 59,
+          "success": 0,
+          "fail": 1
         },
         "Artyom": {
-          "d\u00e9s": [
+          "dices": [
             26,
             38,
             45,
@@ -126,57 +126,51 @@
             85,
             88
           ],
-          "moyenne": 58,
-          "r\u00e9ussites": 0,
-          "\u00e9checs": 0
+          "average": 58,
+          "success": 0,
+          "fail": 0
         }
       },
       "19/07/2024": {
         "Melinda": {
-          "d\u00e9s": [
-            [
-              4,
-              10,
-              45,
-              46,
-              51,
-              79,
-              83,
-              94
-            ]
+          "dices": [
+            4,
+            10,
+            45,
+            46,
+            51,
+            79,
+            83,
+            94
           ],
-          "moyenne": 52,
-          "r\u00e9ussites": 1,
-          "\u00e9checs": 0
+          "average": 52,
+          "success": 1,
+          "fail": 0
         },
         "Efard": {
-          "d\u00e9s": [
-            [
-              9,
-              37,
-              39,
-              53
-            ]
+          "dices": [
+            9,
+            37,
+            39,
+            53
           ],
-          "moyenne": 34,
-          "r\u00e9ussites": 0,
-          "\u00e9checs": 0
+          "average": 34,
+          "success": 0,
+          "fail": 0
         },
         "Artyom": {
-          "d\u00e9s": [
-            [
-              3,
-              16,
-              26,
-              64,
-              71,
-              78,
-              95
-            ]
+          "dices": [
+            3,
+            16,
+            26,
+            64,
+            71,
+            78,
+            95
           ],
-          "moyenne": 50,
-          "r\u00e9ussites": 1,
-          "\u00e9checs": 0
+          "average": 50,
+          "success": 1,
+          "fail": 0
         }
       }
     }
@@ -253,10 +247,10 @@
         97
       ]
     },
-    "parties": {
+    "games": {
       "13/07/2024": {
         "Kelly": {
-          "d\u00e9s": [
+          "dices": [
             2,
             18,
             21,
@@ -268,12 +262,12 @@
             57,
             67
           ],
-          "moyenne": 35,
-          "r\u00e9ussites": 1,
-          "\u00e9checs": 0
+          "average": 35,
+          "success": 1,
+          "fail": 0
         },
         "Michael": {
-          "d\u00e9s": [
+          "dices": [
             15,
             40,
             50,
@@ -282,12 +276,12 @@
             76,
             79
           ],
-          "moyenne": 55,
-          "r\u00e9ussites": 0,
-          "\u00e9checs": 0
+          "average": 55,
+          "success": 0,
+          "fail": 0
         },
         "Eva": {
-          "d\u00e9s": [
+          "dices": [
             3,
             19,
             23,
@@ -298,75 +292,69 @@
             96,
             96
           ],
-          "moyenne": 57,
-          "r\u00e9ussites": 1,
-          "\u00e9checs": 2
+          "average": 57,
+          "success": 1,
+          "fail": 2
         }
       },
       "20/07/2024": {
         "Kelly": {
-          "d\u00e9s": [
-            [
-              1,
-              2,
-              7,
-              22,
-              30,
-              52,
-              54,
-              67,
-              76,
-              78,
-              86,
-              89,
-              91
-            ]
+          "dices": [
+            1,
+            2,
+            7,
+            22,
+            30,
+            52,
+            54,
+            67,
+            76,
+            78,
+            86,
+            89,
+            91
           ],
-          "moyenne": 50,
-          "r\u00e9ussites": 2,
-          "\u00e9checs": 0
+          "average": 50,
+          "success": 2,
+          "fail": 0
         },
         "Michael": {
-          "d\u00e9s": [
-            [
-              16,
-              26,
-              32,
-              36,
-              38,
-              38,
-              43,
-              47,
-              48,
-              60,
-              69,
-              92
-            ]
+          "dices": [
+            16,
+            26,
+            32,
+            36,
+            38,
+            38,
+            43,
+            47,
+            48,
+            60,
+            69,
+            92
           ],
-          "moyenne": 45,
-          "r\u00e9ussites": 0,
-          "\u00e9checs": 0
+          "average": 45,
+          "success": 0,
+          "fail": 0
         },
         "Eva": {
-          "d\u00e9s": [
-            [
-              3,
-              13,
-              16,
-              18,
-              37,
-              47,
-              50,
-              73,
-              75,
-              86,
-              95,
-              97
-            ]
+          "dices": [
+            3,
+            13,
+            16,
+            18,
+            37,
+            47,
+            50,
+            73,
+            75,
+            86,
+            95,
+            97
           ],
-          "moyenne": 51,
-          "r\u00e9ussites": 1,
-          "\u00e9checs": 1
+          "average": 51,
+          "success": 1,
+          "fail": 1
         }
       }
     }
@@ -378,6 +366,6 @@
       "Karl": [],
       "Ulric": []
     },
-    "parties": {}
+    "games": {}
   }
 }

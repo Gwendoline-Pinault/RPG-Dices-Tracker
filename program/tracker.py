@@ -11,6 +11,7 @@ with open("data.json", 'r+', encoding='utf-8') as dataFile:
 # Liste des noms de personnages des campagnes
 AriaPersonnages = ["Melinda", "Efard", "Artyom"]
 PoudlardPersonnages = ["Kelly", "Michael", "Eva"]
+PathfinderPersonnages = ["Callum", "Elora", "Karl", "Ulric"]
 
 # Début du programme
 date = input("Date de la partie : ")
@@ -25,24 +26,38 @@ def Stats(personnage) :
   # Détermination du personnage sélectionné
   match personnage :
     case "Melinda" :
-      dicesArray = dices
+      dicesArray = Gwen
     case "Efard" :
-      dicesArray = JeanDices
+      dicesArray = Jean
     case "Artyom" :
-      dicesArray = ArtyomDices
+      dicesArray = Artyom
     case "Kelly" :
-      dicesArray = dices
+      dicesArray = Gwen
     case "Michael" :
-      dicesArray = JeanDices
+      dicesArray = Jean
     case "Eva" :
-      dicesArray = ManonDices
+      dicesArray = Manon
+    case "Callum":
+      dicesArray = Gwen
+    case "Elora":
+      dicesArray = Elora
+    case "Karl":
+      dicesArray = Jean
+    case "Ulric":
+      dicesArray = Ulric
 
   # Calcul du nombre de critiques en fonction de la valeur des dés du personnage stockés dans le fichier dices.py
   for dice in dicesArray :
-    if 1 <=dice <= 5 :
-      crit += 1
-    elif 96 <= dice <= 100 :
-      fail += 1
+    if campagne == "Aria" or campagne == "Poudlard":
+      if 1 <=dice <= 5 :
+        crit += 1
+      elif 96 <= dice <= 100 :
+        fail += 1
+    elif campagne == "Pathfinder":
+      if dice == 1:
+        fail += 1
+      elif dice == 20:
+        crit += 1
 
   # Classe les dés dans l'ordre croissant
   game = sorted(dicesArray)
@@ -51,26 +66,28 @@ def Stats(personnage) :
   moyenne = round(stat.mean(game))
 
   # Ajoute les données créées au JSON existant
-  data_save_json = {"dés": [game], "moyenne": moyenne, "réussites": crit, "échecs": fail}
+  data_save_json = {"dices": game, "average": moyenne, "success": crit, "fail": fail}
 
   # Met à jour la moyenne générale des joueurs
   for die in game:
     data[campagne]["globalAvg"][personnage].append(die)
   
-  data[campagne]["parties"][date][personnage] = data_save_json
-  
+  data[campagne]["games"][date][personnage] = data_save_json
+
 
 # Je détermine la campagne concernée pour aller chercher le nom des personnages pour la génération du récap
 if (campagne == "Aria"):
   roleplayGame = AriaPersonnages
 elif (campagne == "Poudlard"):
   roleplayGame = PoudlardPersonnages
+elif (campagne == "Pathfinder"):
+  roleplayGame = PathfinderPersonnages
 else :
   print("Erreur dans la détermination de la campagne")
   campagne = input("Quel JDR ? ")
 
 # Création de l'objet pour la partie du jour afin d'y insérer les données générées
-data[campagne]["parties"][date] = {}
+data[campagne]["games"][date] = {}
 
 # On génère les stats pour chaque personnage de la campagne concernée
 for personnage in roleplayGame :
