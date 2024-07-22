@@ -7,7 +7,7 @@ const data = await fetch('/program/data.json')
 // CONSTANTES
 const AriaPersonnages = ["Melinda", "Efard", "Artyom"];
 const HogwardsPersonnages = ["Kelly", "Michael", "Eva"];
-const PathfinderPersonnages = ["Callum", "Karl", "Ulric", "Elora"];
+const PathfinderPersonnages = ["Callum", "Elora", "Karl", "Ulric"];
 const AriaDates = [];
 const HogwardsDates = [];
 const PathfinderDates = [];
