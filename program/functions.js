@@ -63,7 +63,7 @@ export function createPJGlobalStat(personnage, section, game, globalAvg) {
  * @param {array} personnages - Tableau de la liste des personnages de la partie
  * @param {object} jdrGame - Données de la partie sélectionnée
  */
-export function createGameStatInfos(section, date, game, personnages, jdrGame) {
+export function createGameStatInfos(section, date, game, jdrGame) {
   const gameArticle = document.createElement('article');
   gameArticle.className = game + "-article";
   gameArticle.id = date;
@@ -76,7 +76,7 @@ export function createGameStatInfos(section, date, game, personnages, jdrGame) {
   const thisGameArticle = document.getElementById(`${date}`);
   thisGameArticle.append(gameTitle);
 
-  for (let personnage of personnages) {
+  for (let personnage in jdrGame[date]) {
     const div = document.createElement('div');
     thisGameArticle.append(div);
 

@@ -53,7 +53,7 @@ if (ariaPage != null) {
   AriaDates.forEach(date => {
     const game = "aria";
     const AriaGames = data["Aria"]["games"];
-    createGameStatInfos(ariaStatSection, date, game, AriaPersonnages, AriaGames);
+    createGameStatInfos(ariaStatSection, date, game, AriaGames);
   });
 }
 
@@ -85,7 +85,7 @@ if (HogwardsPage != null) {
   HogwardsDates.forEach(date => {
     const game = "hogwards";
     const HogwardsGames = data["Poudlard"]["games"];
-    createGameStatInfos(hogwardsStatSection, date, game, HogwardsPersonnages, HogwardsGames);
+    createGameStatInfos(hogwardsStatSection, date, game, HogwardsGames);
   });
 }
 
@@ -126,7 +126,7 @@ if (PathfinderPage != null) {
     PathfinderDates.forEach(date => {
       const game = "pathfinder";
       const PathfinderGames = data["Pathfinder"]["games"];
-      createGameStatInfos(pathfinderStatSection, date, game, PathfinderPersonnages, PathfinderGames);
+      createGameStatInfos(pathfinderStatSection, date, game, PathfinderGames);
     });
   }
 }
