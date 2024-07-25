@@ -1,5 +1,6 @@
 export function getAvg(globalAvgArray) {
   let sum = 0;
+
     
   globalAvgArray.forEach(element => {
     sum += element
@@ -9,7 +10,19 @@ export function getAvg(globalAvgArray) {
   return globalAvg;
 }
 
-export function createPJGlobalStat(personnage, section, game, globalAvg) {
+export function createPJGlobalStat(personnage, section, game, globalAvg, globalAvgArray) {
+  let globalSuccess = 0;
+  let globalFail = 0;
+
+  globalAvgArray.forEach(element => {
+    if(element <= 5) {
+      globalSuccess ++;
+    }
+    else if (96 <= element) {
+      globalFail ++;
+    }
+  })
+
   const pjArticle = document.createElement('article');
   pjArticle.id = personnage;
   pjArticle.className = `${game}-color`;
@@ -18,8 +31,26 @@ export function createPJGlobalStat(personnage, section, game, globalAvg) {
   const pjTitle = document.createElement('h3');
   pjTitle.textContent = personnage;
 
+  const pjGlobalStatDiv = document.createElement('div');
+  pjGlobalStatDiv.className = "pj-recap-dice";
+
   const pjStat = document.createElement('p');
   pjStat.className = "round";
+
+  const pjNbDices = document.createElement('p');
+  pjNbDices.className = "dice-info";
+  pjNbDices.textContent = globalAvgArray.length + " dés";
+
+  const pjCritDiv = document.createElement('div');
+  pjCritDiv.className = "pj-recap-crit";
+
+  const pjSuccess = document.createElement('p');
+  pjSuccess.textContent = "Réussites critiques : " + globalSuccess;
+  pjSuccess.className = "dice-info";
+
+  const pjFail = document.createElement('p');
+  pjFail.textContent = "Echecs critiques : " + globalFail;
+  pjFail.className = "dice-info";
 
   if (isNaN(globalAvg)) {
     pjStat.textContent = "-";
@@ -50,8 +81,15 @@ export function createPJGlobalStat(personnage, section, game, globalAvg) {
   // Récupération de l'id de l'article créé pour ajouter le titre et les stats
   const thisArticle = document.getElementById(`${personnage}`);
   thisArticle.append(pjTitle);
-  thisArticle.append(pjStat);
+  thisArticle.append(pjGlobalStatDiv);
+  pjGlobalStatDiv.append(pjStat);
+  pjGlobalStatDiv.append(pjNbDices);
+  
+  thisArticle.append(pjCritDiv);
+  pjCritDiv.append(pjSuccess);
+  pjCritDiv.append(pjFail);
 }
+
 /**
  * La fonction createGameStatInfos() sert à générer la liste des parties en récupérant les données du fichier JSON.
  * Chaque partie affcihée comprend pour chaque joueur les statistiques suivantes : la moyenne de la partie, le nombre de réussites critiques, le nombre d'échecs critiques.

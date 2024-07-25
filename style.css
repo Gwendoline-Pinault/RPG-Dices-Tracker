@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --dark-blue: rgb(27, 40, 49);
   --medium-blue: rgb(61, 79, 93);
@@ -101,6 +105,19 @@ body {
   background-color: var(--bg-light);
 }
 
+.main-body-page {
+  display: flex;
+  flex-direction: column;
+  color: var(--text-dark);
+  width: 100%;
+  align-items: center;
+}
+
+#nb-games {
+  width: 90%;
+  align-items: flex-start;
+}
+
 .pj-recap {
   display: flex;
   justify-content: space-around;
@@ -109,15 +126,36 @@ body {
   margin: 20px 0;
 }
 
+.pj-recap-dice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.pj-recap-crit {
+  width: 100%;
+  text-align: left;
+}
+
+.pj-recap-crit p {
+  margin-bottom: 10px;
+}
+
+.dice-info {
+  margin: 0;
+}
+
 .pj-recap article {
-  width: 150px;
-  height: 130px;
   border-radius: 10px;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 5px 10px;
 }
 
 .hogwards-color {
@@ -175,6 +213,10 @@ body {
   margin-bottom: 0;
 }
 
+.pj-recap h4 {
+  margin: 15px 0 10px 0;
+}
+
 .info-title {
   font-size: 18px;
   text-align: center;
@@ -182,8 +224,8 @@ body {
 }
 
 .round {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 100%;
   background-color: var(--white);
   color: var(--text-dark);
@@ -202,7 +244,7 @@ body {
   flex-direction: column;
   margin: 10px;
   color: var(--text-dark);
-  width: 90%;
+  width: 95%;
 }
 
 .stats-section article {
@@ -254,9 +296,14 @@ body {
     width: 90%;
   }
 
+  .link-card h2 {
+    margin: 10px 0;
+  }
+
   .pj-recap {
-    width: 90%;
+    width: 100%;
     margin-bottom: 10px;
+    padding: 0 10px;
   }
 
   .pj-recap article {

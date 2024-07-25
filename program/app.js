@@ -46,8 +46,14 @@ if (ariaPage != null) {
     
     // création du récap du personnage avec la moyenne générale
     const game = "aria";
-    createPJGlobalStat(personnage, ariaRecapSection, game, globalAvg);
+    createPJGlobalStat(personnage, ariaRecapSection, game, globalAvg, globalAvgArray);
   }
+
+  // Décompte du nombre de parties
+  const NbGamesTitle = document.getElementById('nb-games');
+  const NbGamesTitleSpan = document.createElement('span');
+  NbGamesTitleSpan.textContent = AriaDates.length;
+  NbGamesTitle.append(NbGamesTitleSpan);
 
   // Création de la liste des récap de chaque partie par personnage
   AriaDates.forEach(date => {
@@ -78,8 +84,14 @@ if (HogwardsPage != null) {
     
     // création du récap du personnage avec la moyenne générale
     const game = "hogwards";
-    createPJGlobalStat(personnage, hogwardsRecapSection, game, globalAvg);
+    createPJGlobalStat(personnage, hogwardsRecapSection, game, globalAvg, globalAvgArray);
   }
+
+  // Décompte du nombre de parties
+  const NbGamesTitle = document.getElementById('nb-games');
+  const NbGamesTitleSpan = document.createElement('span');
+  NbGamesTitleSpan.textContent = HogwardsDates.length;
+  NbGamesTitle.append(NbGamesTitleSpan);
 
   // Création de la liste des récap de chaque partie par personnage
   HogwardsDates.forEach(date => {
@@ -110,7 +122,7 @@ if (PathfinderPage != null) {
     
     // création du récap du personnage avec la moyenne générale
     const game = "pathfinder";
-    createPJGlobalStat(personnage, pathfinderRecapSection, game, globalAvg);
+    createPJGlobalStat(personnage, pathfinderRecapSection, game, globalAvg, globalAvgArray);
   }
 
   // Création de la liste des récap de chaque partie par personnage
@@ -123,6 +135,12 @@ if (PathfinderPage != null) {
     pathSection.append(title);
 
   } else {
+      // Décompte du nombre de parties
+    const NbGamesTitle = document.getElementById('nb-games');
+    const NbGamesTitleSpan = document.createElement('span');
+    NbGamesTitleSpan.textContent = PathfinderDates.length;
+    NbGamesTitle.append(NbGamesTitleSpan);
+
     PathfinderDates.forEach(date => {
       const game = "pathfinder";
       const PathfinderGames = data["Pathfinder"]["games"];
