@@ -67,7 +67,7 @@ export function createGameStatInfos(section, date, game, jdrGame) {
   const gameArticle = document.createElement('article');
   gameArticle.className = game + "-article";
   gameArticle.id = date;
-  section.append(gameArticle);
+  section.prepend(gameArticle);
 
   const gameTitle = document.createElement('h3');
   gameTitle.className = game + "-color-title";
@@ -95,7 +95,9 @@ export function createGameStatInfos(section, date, game, jdrGame) {
         span.className = "fail";
       }
       else if (jdrGame[date][personnage]["average"] < 50) {
-        span.className = "success";
+        if (jdrGame[date][personnage]["average"] !== 0) {
+          span.className = "success";
+        }
       }
     }
     // Dés 20 sur le système Pathfinder
@@ -108,7 +110,12 @@ export function createGameStatInfos(section, date, game, jdrGame) {
       }
     }
     
-    span.textContent = jdrGame[date][personnage]["average"];
+    if (jdrGame[date][personnage]["average"] == 0) {
+      span.textContent = "-";
+    } else {
+      span.textContent = jdrGame[date][personnage]["average"];
+    }
+  
 
     pjAvg.textContent = "Moyenne : ";
     pjAvg.append(span);
