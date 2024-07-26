@@ -78,14 +78,15 @@ if (HogwardsPage != null) {
 
   for (let personnage of HogwardsPersonnages) {
     // récupération du tableau contenant les dés du personnage
-    const globalAvgArray = data["Poudlard"]["globalAvg"][`${personnage}`];
+    const globalAvgArray = data["Poudlard"]["globalAvg"][personnage];
+    const globalMedian = data["Poudlard"]['globalMedian'][personnage];
 
     // calcule de la moyenne générale des dés
     const globalAvg = getAvg(globalAvgArray);
     
     // création du récap du personnage avec la moyenne générale
     const game = "hogwards";
-    createPJGlobalStat(personnage, hogwardsRecapSection, game, globalAvg, globalAvgArray);
+    createPJGlobalStat(personnage, hogwardsRecapSection, game, globalAvg, globalAvgArray, globalMedian);
   }
 
   // Décompte du nombre de parties
@@ -116,14 +117,15 @@ if (PathfinderPage != null) {
 
   for (let personnage of PathfinderPersonnages) {
     // récupération du tableau contenant les dés du personnage
-    const globalAvgArray = data["Pathfinder"]["globalAvg"][`${personnage}`];
+    const globalAvgArray = data["Pathfinder"]["globalAvg"][personnage];
+    const globalMedian = data["Pathfinder"]["globalMedian"][personnage];
 
     // calcule de la moyenne générale des dés
     const globalAvg = getAvg(globalAvgArray);
     
     // création du récap du personnage avec la moyenne générale
     const game = "pathfinder";
-    createPJGlobalStat(personnage, pathfinderRecapSection, game, globalAvg, globalAvgArray);
+    createPJGlobalStat(personnage, pathfinderRecapSection, game, globalAvg, globalAvgArray, globalMedian);
   }
 
   // Création de la liste des récap de chaque partie par personnage
