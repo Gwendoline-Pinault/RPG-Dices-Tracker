@@ -39,14 +39,15 @@ if (ariaPage != null) {
 
   for (let personnage of AriaPersonnages) {
     // récupération du tableau contenant les dés du personnage
-    const globalAvgArray = data["Aria"]["globalAvg"][`${personnage}`];
+    const globalAvgArray = data["Aria"]["globalAvg"][personnage];
+    const globalMedian = data["Aria"]['globalMedian'][personnage];
 
     // calcule de la moyenne générale des dés
     const globalAvg = getAvg(globalAvgArray);
     
     // création du récap du personnage avec la moyenne générale
     const game = "aria";
-    createPJGlobalStat(personnage, ariaRecapSection, game, globalAvg, globalAvgArray);
+    createPJGlobalStat(personnage, ariaRecapSection, game, globalAvg, globalAvgArray, globalMedian);
   }
 
   // Décompte du nombre de parties

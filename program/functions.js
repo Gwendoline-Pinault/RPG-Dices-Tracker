@@ -10,7 +10,7 @@ export function getAvg(globalAvgArray) {
   return globalAvg;
 }
 
-export function createPJGlobalStat(personnage, section, game, globalAvg, globalAvgArray) {
+export function createPJGlobalStat(personnage, section, game, globalAvg, globalAvgArray, globalMedian) {
   let globalSuccess = 0;
   let globalFail = 0;
 
@@ -51,6 +51,10 @@ export function createPJGlobalStat(personnage, section, game, globalAvg, globalA
   const pjFail = document.createElement('p');
   pjFail.textContent = "Echecs critiques : " + globalFail;
   pjFail.className = "dice-info";
+
+  const pjMedian = document.createElement('p');
+  pjMedian.textContent = "Médiane : " + globalMedian;
+  pjMedian.className = "dice-info";
 
   const pjLink = document.createElement('a');
   pjLink.className = game + "-button link-button";
@@ -95,7 +99,10 @@ export function createPJGlobalStat(personnage, section, game, globalAvg, globalA
   thisArticle.append(pjCritDiv);
   pjCritDiv.append(pjSuccess);
   pjCritDiv.append(pjFail);
-  thisArticle.append(pjLink);
+  thisArticle.append(pjMedian);
+
+  // Le button n'est pas encore implémenté
+  /* thisArticle.append(pjLink); */
 }
 
 /**
@@ -135,6 +142,10 @@ export function createGameStatInfos(section, date, game, jdrGame) {
     const pjAvg = document.createElement('p');
     const span = document.createElement('span');
 
+    const median = document.createElement('p');
+    const medianSpan = document.createElement('span');
+    medianSpan.textContent = jdrGame[date][personnage]["median"];
+
     // dés 100 sur le système Aria
     if (game === "aria" || game === "hogwards") {
       if (jdrGame[date][personnage]["average"] > 50) {
@@ -143,9 +154,18 @@ export function createGameStatInfos(section, date, game, jdrGame) {
       else if (jdrGame[date][personnage]["average"] < 50) {
         if (jdrGame[date][personnage]["average"] !== 0) {
           span.className = "success";
+          medianSpan.className = "success";
         }
       }
+
+      if (jdrGame[date][personnage]["median"] > 50) {
+        medianSpan.className = "fail";
+      }
+      else if (jdrGame[date][personnage]["average"] < 50) {
+        medianSpan.className = "success";
+      }
     }
+
     // Dés 20 sur le système Pathfinder
     else if (game === "pathfinder") {
       if (jdrGame[date][personnage]["average"] < 10) {
@@ -162,9 +182,11 @@ export function createGameStatInfos(section, date, game, jdrGame) {
       span.textContent = jdrGame[date][personnage]["average"];
     }
   
-
     pjAvg.textContent = "Moyenne : ";
     pjAvg.append(span);
+
+    median.textContent = "Médiane : ";
+    median.append(medianSpan);
 
     const pjCrit = document.createElement('p');
     pjCrit.textContent = "Echecs : " + jdrGame[date][personnage]["fail"];
@@ -175,7 +197,9 @@ export function createGameStatInfos(section, date, game, jdrGame) {
     div.append(nameTitle);
     div.append(nbDices);
     div.append(pjAvg);
+    div.append(median);
     div.append(pjSuccess);
     div.append(pjCrit);
+    
   }
 }

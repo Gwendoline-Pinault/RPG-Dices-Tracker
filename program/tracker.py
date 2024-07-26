@@ -62,15 +62,24 @@ def Stats(personnage) :
   # Classe les dés dans l'ordre croissant
   game = sorted(dicesArray)
 
+  # Calcule la médiane des dés
+  median = round(stat.median(game))
+
   # Calcule la moyenne des dés arrondi à l'entier
   moyenne = round(stat.mean(game))
 
   # Ajoute les données créées au JSON existant
-  data_save_json = {"dices": game, "average": moyenne, "success": crit, "fail": fail}
+  data_save_json = {"dices": game, "average": moyenne, "median": median, "success": crit, "fail": fail}
 
   # Met à jour la moyenne générale des joueurs
   for die in game:
     data[campagne]["globalAvg"][personnage].append(die)
+
+  # Met à jour la médiane globale
+  medianArray = data[campagne]["globalAvg"][personnage]
+  sortedMedianArray = sorted(medianArray)
+  globalMedian = round(stat.median(sortedMedianArray))
+  data[campagne]["globalMedian"][personnage] = globalMedian
   
   data[campagne]["games"][date][personnage] = data_save_json
 
