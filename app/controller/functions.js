@@ -10,6 +10,14 @@ export function getAvg(globalAvgArray) {
   return globalAvg;
 }
 
+/**
+ * 
+ * @param {string} personnage nom du personnage
+ * @param {string} section id de la section de la page du JDR
+ * @param {string} game nom du JDR
+ * @param {int} globalAvg moyenne globale du personnage
+ * @param {array} globalAvgArray tableau globalAvg
+ */
 export function createPJGlobalStat(personnage, section, game, globalAvg, globalAvgArray) {
   let globalSuccess = 0;
   let globalFail = 0;
@@ -30,9 +38,6 @@ export function createPJGlobalStat(personnage, section, game, globalAvg, globalA
 
   const pjTitle = document.createElement('h3');
   pjTitle.textContent = personnage;
-
-/*   const pjGlobalStatDiv = document.createElement('div');
-  pjGlobalStatDiv.className = "pj-recap-dice"; */
 
   const pjStat = document.createElement('p');
   pjStat.className = "round";
