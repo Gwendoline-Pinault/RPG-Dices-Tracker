@@ -176,7 +176,7 @@ export function createGameStatInfos(section, date, game, jdrGame) {
       if (jdrGame[date][personnage]["median"] < 10) {
         medianSpan.className = "fail";
       }
-      else if (jdrGame[date][personnage]["average"] > 10) {
+      else if (jdrGame[date][personnage]["median"] > 10) {
         medianSpan.className = "success";
       }
     }
