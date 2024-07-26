@@ -154,14 +154,13 @@ export function createGameStatInfos(section, date, game, jdrGame) {
       else if (jdrGame[date][personnage]["average"] < 50) {
         if (jdrGame[date][personnage]["average"] !== 0) {
           span.className = "success";
-          medianSpan.className = "success";
         }
       }
 
       if (jdrGame[date][personnage]["median"] > 50) {
         medianSpan.className = "fail";
       }
-      else if (jdrGame[date][personnage]["average"] < 50) {
+      else if (jdrGame[date][personnage]["median"] < 50) {
         medianSpan.className = "success";
       }
     }
