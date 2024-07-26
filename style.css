@@ -138,9 +138,10 @@ body {
 .pj-recap-crit {
   width: 100%;
   text-align: left;
+  margin: 10px 0;
 }
 
-.pj-recap-crit p {
+.pj-recap-crit p:first-child {
   margin-bottom: 10px;
 }
 
@@ -163,6 +164,11 @@ body {
   color: var(--text-light);
 }
 
+.hogwards-button {
+  background-color: var(--dark-blue);
+  color: var(--text-light);
+}
+
 .hogwards-article {
   border: 1px solid var(--medium-blue);
   margin-bottom: 20px;
@@ -175,9 +181,20 @@ body {
   text-shadow: 2px 2px 2px var(--text-dark);
 }
 
+.aria-article {
+  padding: 5px 10px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
 .aria-color {
   background-color: var(--rose);
   color: var(--text-dark);
+}
+
+.aria-button {
+  background-color: var(--medium-orange);
+  color: var(--text-light);
 }
 
 .aria-color-title {
@@ -197,6 +214,11 @@ body {
   color: var(--text-light);
 }
 
+.pathfinder-button {
+  background-color: var(--dark-purple);
+  color: var(--text-light);
+}
+
 .pathfinder-article {
   border: 1px solid var(--dark-purple);
   margin-bottom: 20px;
@@ -207,6 +229,12 @@ body {
   border-radius: 3px 3px 0 0;
   color: var(--text-light);
   text-shadow: 2px 2px 2px var(--text-dark);
+}
+
+.link-button {
+  border-radius: 8px;
+  padding: 8px;
+  text-decoration: none;
 }
 
 .pj-recap h3 {
@@ -233,6 +261,7 @@ body {
   justify-content: center;
   align-items: center;
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .card:hover {

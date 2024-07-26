@@ -25,14 +25,14 @@ export function createPJGlobalStat(personnage, section, game, globalAvg, globalA
 
   const pjArticle = document.createElement('article');
   pjArticle.id = personnage;
-  pjArticle.className = `${game}-color`;
+  pjArticle.className = game + "-color";
   section.append(pjArticle);
 
   const pjTitle = document.createElement('h3');
   pjTitle.textContent = personnage;
 
-  const pjGlobalStatDiv = document.createElement('div');
-  pjGlobalStatDiv.className = "pj-recap-dice";
+/*   const pjGlobalStatDiv = document.createElement('div');
+  pjGlobalStatDiv.className = "pj-recap-dice"; */
 
   const pjStat = document.createElement('p');
   pjStat.className = "round";
@@ -51,6 +51,11 @@ export function createPJGlobalStat(personnage, section, game, globalAvg, globalA
   const pjFail = document.createElement('p');
   pjFail.textContent = "Echecs critiques : " + globalFail;
   pjFail.className = "dice-info";
+
+  const pjLink = document.createElement('a');
+  pjLink.className = game + "-button link-button";
+  pjLink.href = "/pages/stats-personnage.html";
+  pjLink.textContent = "Plus d'infos";
 
   if (isNaN(globalAvg)) {
     pjStat.textContent = "-";
@@ -81,13 +86,16 @@ export function createPJGlobalStat(personnage, section, game, globalAvg, globalA
   // Récupération de l'id de l'article créé pour ajouter le titre et les stats
   const thisArticle = document.getElementById(`${personnage}`);
   thisArticle.append(pjTitle);
-  thisArticle.append(pjGlobalStatDiv);
-  pjGlobalStatDiv.append(pjStat);
-  pjGlobalStatDiv.append(pjNbDices);
+  thisArticle.append(pjStat);
+  thisArticle.append(pjNbDices);
+  /*thisArticle.append(pjGlobalStatDiv);
+   pjGlobalStatDiv.append(pjStat);
+  pjGlobalStatDiv.append(pjNbDices); */
   
   thisArticle.append(pjCritDiv);
   pjCritDiv.append(pjSuccess);
   pjCritDiv.append(pjFail);
+  thisArticle.append(pjLink);
 }
 
 /**
