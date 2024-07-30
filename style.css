@@ -120,10 +120,11 @@ body {
 
 .pj-recap {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   color: var(--text-dark);
   width: 100%;
   margin: 20px 0;
+  padding: 0 10px;
 }
 
 .pj-recap-dice {
@@ -156,7 +157,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 5px 10px;
+  padding: 10px;
 }
 
 .hogwards-color {
@@ -242,7 +243,7 @@ body {
 }
 
 .pj-recap h4 {
-  margin: 15px 0 10px 0;
+  margin: 10px 0 10px 0;
 }
 
 .info-title {
@@ -261,7 +262,7 @@ body {
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin: 10px;
 }
 
 .card:hover {
@@ -321,34 +322,50 @@ body {
 
 /* AFFICHAGE MOBILE */
 
+@media screen and (max-width: 400px) {
+  .pj-recap {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 0 0px;
+  }
+
+  .pj-recap article {
+    margin-right: 5px;
+  }
+
+  .pj-recap article:last-child {
+    margin-right: 0;
+  }
+
+  .round {
+    min-width: 30px;
+    min-height: 30px;
+  }
+}
+
 @media screen and (max-width: 700px){
   .link-card {
     width: 90%;
   }
 
-  .link-card h2 {
-    margin: 10px 0;
-  }
-
   .pj-recap {
+    padding: 0 5px;
     width: 100%;
-    margin-bottom: 10px;
-    padding: 0 10px;
   }
 
   .pj-recap article {
     margin: 0 5px;
   }
 
-  .pj-recap article:first-child {
-    margin: 0 5px 0 0;
+  .link-card h2 {
+    margin: 10px 0;
   }
 
-  .pj-recap article:last-child {
-    margin: 0 0 0 5px;
-  }
-
-  .stats-section p {
+  .stats-section p, .pj-recap p {
     font-size: 14px;
+  }
+
+  #nb-games {
+    font-size: 1.2rem;
   }
 }
