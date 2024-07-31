@@ -1,7 +1,6 @@
 export function getAvg(globalAvgArray) {
   let sum = 0;
 
-    
   globalAvgArray.forEach(element => {
     sum += element
   });
