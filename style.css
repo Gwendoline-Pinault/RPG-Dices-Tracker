@@ -4,10 +4,10 @@
 
 :root {
   --dark-blue: rgb(27, 40, 49);
-  --dark-blue-hover: rgba(27, 40, 49, 0.7);
+  --dark-blue-hover: rgba(27, 40, 49, 0.8);
   --medium-blue: rgb(61, 79, 93);
   --medium-orange: rgb(175, 86, 62);
-  --medium-orange-hover: rgba(175, 86, 62, 0.5);
+  --medium-orange-hover: rgba(223, 145, 123, 0.7);
   --dark-purple: rgb(63, 20, 133);
   --dark-purple-hover: rgba(63, 20, 133, 0.8);
   --violet: rgb(138, 101, 211);
@@ -120,13 +120,13 @@ a {
 .nav-item {
   text-decoration: none;
   font-weight: bold;
-  padding: 5px 10px;
+  padding: 0 10px 3px 10px;
+  margin-top: 10px;
   color: var(--text-light);
   text-shadow: 1px 1px 2px var(--dark-blue);
   cursor: pointer;
   font-size: 18px;
-  border: 2px solid transparent;
-  border-radius: 10px;
+  border-radius: 15px;
 }
 
 /* 
@@ -204,9 +204,13 @@ a {
   color: var(--text-light);
 }
 
-.hogwards-hover:hover {
-  border: 2px solid var(--blue);
+.hogwards-hover {
+  box-shadow: 0 0 10px 6px var(--dark-blue-hover);
   background-color: var(--dark-blue-hover);
+}
+
+.hogwards-hover:hover {
+  box-shadow: 0 0 10px 5px var(--blue);
 }
 
 .hogwards-button {
@@ -237,9 +241,13 @@ a {
   color: var(--text-dark);
 }
 
-.aria-hover:hover {
-  border: 2px solid var(--medium-orange);
+.aria-hover {
+  box-shadow: 0 0 10px 6px var(--medium-orange-hover);
   background-color: var(--medium-orange-hover);
+}
+
+.aria-hover:hover {
+  box-shadow: 0 0 10px 5px var(--medium-orange);
 }
 
 .aria-button {
@@ -264,9 +272,13 @@ a {
   color: var(--text-light);
 }
 
-.pathfinder-hover:hover {
-  border: 2px solid var(--violet);
+.pathfinder-hover {
+  box-shadow: 0 0 10px 6px var(--dark-purple-hover);
   background-color: var(--dark-purple-hover);
+}
+
+.pathfinder-hover:hover {
+  box-shadow: 0 0 10px 5px var(--violet);
 }
 
 .pathfinder-button {
