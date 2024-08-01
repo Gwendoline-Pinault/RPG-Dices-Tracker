@@ -19,5 +19,6 @@ La partie visuelle est développée avec HTML, CSS et JavaScript (utilisation du
 Développement : Gwendoline PINAULT
 
 Images : 
-- Pour la page Poudlard : jackette du jeu Hogwards Legacy
+- Pour la page Poudlard : jackette du jeu "Hogwards Legacy"
 - Pour la page Aria : Image du livre de jeu de rôle d'Aria
+- Pour la page Pathfinder : Image du livre de la campagne "Pathfinder : Wrath of the righteous"
