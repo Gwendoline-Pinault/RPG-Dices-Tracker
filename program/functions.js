@@ -1,3 +1,8 @@
+/**
+ * Function getAvg() : calcule la moyenne globale d'un personnage
+ * @param {array} globalAvgArray tableau contenant la liste de tous les dés du joueur sur la campagne
+ * @returns int globalAvg : renvoie la moyenne globale
+ */
 export function getAvg(globalAvgArray) {
   let sum = 0;
 
@@ -9,6 +14,15 @@ export function getAvg(globalAvgArray) {
   return globalAvg;
 }
 
+/**
+ * createPJGlobalStat() : fonction qui crée le récapitulatif en haut de la page d'un JDR. Liste les personnages avec leur moyenne globale, médiane globale, nombre de dés lancés, nombre de critiques (réussites et échecs) réalisés dans la campagne.
+ * @param {string} personnage nom du personnage sélectionné
+ * @param {string} section id de la section recap
+ * @param {string} game nom du JDR (pour le style et le DOM)
+ * @param {int} globalAvg moyenne globale du personnage, générée préalablement par la fonction getAvg()
+ * @param {array} globalAvgArray tableau contenant la liste des dés du personnages pour calculer le nombre de critiques
+ * @param {int} globalMedian médiane globale du personnage calculée préalablement
+ */
 export function createPJGlobalStat(personnage, section, game, globalAvg, globalAvgArray, globalMedian) {
   let globalSuccess = 0;
   let globalFail = 0;
@@ -29,9 +43,6 @@ export function createPJGlobalStat(personnage, section, game, globalAvg, globalA
 
   const pjTitle = document.createElement('h3');
   pjTitle.textContent = personnage;
-
-/*   const pjGlobalStatDiv = document.createElement('div');
-  pjGlobalStatDiv.className = "pj-recap-dice"; */
 
   const pjStat = document.createElement('p');
   pjStat.className = "round";
@@ -90,11 +101,7 @@ export function createPJGlobalStat(personnage, section, game, globalAvg, globalA
   const thisArticle = document.getElementById(`${personnage}`);
   thisArticle.append(pjTitle);
   thisArticle.append(pjStat);
-  thisArticle.append(pjNbDices);
-  /*thisArticle.append(pjGlobalStatDiv);
-   pjGlobalStatDiv.append(pjStat);
-  pjGlobalStatDiv.append(pjNbDices); */
-  
+  thisArticle.append(pjNbDices);  
   thisArticle.append(pjCritDiv);
   pjCritDiv.append(pjSuccess);
   pjCritDiv.append(pjFail);
@@ -206,4 +213,50 @@ export function createGameStatInfos(section, date, game, jdrGame) {
     div.append(pjCrit);
     
   }
+}
+
+/**
+ * Function  createJDRPageContent() : permet de générer le contenu des pages de JDR en appelant les différentes fonctions qui créent l'en-tête et la liste des parties. Cette fonction est générique et s'appliquent à tous les JDR. On récupère en entrée le nom de la page visionnnée par l'utilisateur pour générer les données associées.
+ * @param {object} data contenu du fichier JSON récupéré dans un objet
+ * @param {string} jdr Nom du JDR concerné pour la partie style (minuscules)
+ * @param {string} jdrName Nom du JDR affiché sur le site et dans le JSON 
+ */
+export function createJDRPageContent(data, jdr, jdrName) {
+  // Création du tableau de la liste des dates pour le calcul du nombre de parties
+  const jdrDates = [];
+  const jdrGames = data[jdrName]["games"];
+
+  for (let dates in jdrGames) {
+    jdrDates.push(dates);
+  }
+
+  // Récupération des personnages et des sections du DOM pour la génération des parties et du récap
+  const recapSection = document.getElementById(`${jdr}-recap-section`);
+  const statsSection = document.getElementById(`${jdr}-stats-section`);
+
+  // Création d'un tableau contenant La liste des noms de personnages à partir de la liste présente dans "globalMedian" du JSON
+  const jdrCharacters = Object.keys(data[jdrName]["globalMedian"]); 
+
+  for (let personnage of jdrCharacters) {
+    // récupération du tableau contenant les dés du personnage
+    const globalAvgArray = data[jdrName]["globalAvg"][personnage];
+    const globalMedian = data[jdrName]["globalMedian"][personnage];
+
+    // calcul de la moyenne générale des dés
+    const globalAvg = getAvg(globalAvgArray);
+
+    // création du récap du personnage avec la moyenne générale
+    createPJGlobalStat(personnage, recapSection, jdr, globalAvg, globalAvgArray, globalMedian);
+  }
+
+  // Décompte du nombre de parties
+  const NbGamesTitle = document.getElementById('nb-games');
+  const NbGamesTitleSpan = document.createElement('span');
+  NbGamesTitleSpan.textContent = jdrDates.length;
+  NbGamesTitle.append(NbGamesTitleSpan);
+
+  // Création de la liste des récap de chaque partie par personnage (du plus récent au plus ancien)
+  jdrDates.forEach(date => {
+    createGameStatInfos(statsSection, date, jdr, jdrGames);
+  });
 }
