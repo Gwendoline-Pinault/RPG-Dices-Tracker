@@ -1,20 +1,4 @@
 /**
- * Function getAvg() : calcule la moyenne globale d'un personnage
- * @param {array} globalAvgArray tableau contenant la liste de tous les dés du joueur sur la campagne
- * @returns int globalAvg : renvoie la moyenne globale
- */
-export function getAvg(globalAvgArray) {
-  let sum = 0;
-
-  globalAvgArray.forEach(element => {
-    sum += element
-  });
-
-  const globalAvg = Math.round(sum / globalAvgArray.length);
-  return globalAvg;
-}
-
-/**
  * createPJGlobalStat() : fonction qui crée le récapitulatif en haut de la page d'un JDR. Liste les personnages avec leur moyenne globale, médiane globale, nombre de dés lancés, nombre de critiques (réussites et échecs) réalisés dans la campagne.
  * @param {string} personnage nom du personnage sélectionné
  * @param {string} section id de la section recap
@@ -28,10 +12,10 @@ export function createPJGlobalStat(personnage, section, game, globalAvg, globalA
   let globalFail = 0;
 
   globalAvgArray.forEach(element => {
-    if(element <= 5) {
+    if (element <= 5) {
       globalSuccess ++;
     }
-    else if (96 <= element) {
+    else if (element >= 96) {
       globalFail ++;
     }
   })
@@ -239,11 +223,11 @@ export function createJDRPageContent(data, jdr, jdrName) {
 
   for (let personnage of jdrCharacters) {
     // récupération du tableau contenant les dés du personnage
-    const globalAvgArray = data[jdrName]["globalAvg"][personnage];
+    const globalAvgArray = data[jdrName]["dicesList"][personnage];
     const globalMedian = data[jdrName]["globalMedian"][personnage];
 
     // calcul de la moyenne générale des dés
-    const globalAvg = getAvg(globalAvgArray);
+    const globalAvg = data[jdrName]["globalAvg"][personnage];
 
     // création du récap du personnage avec la moyenne générale
     createPJGlobalStat(personnage, recapSection, jdr, globalAvg, globalAvgArray, globalMedian);
