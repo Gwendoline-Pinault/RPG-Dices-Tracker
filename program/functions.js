@@ -244,3 +244,32 @@ export function createJDRPageContent(data, jdr, jdrName) {
     createGameStatInfos(statsSection, date, jdr, jdrGames);
   });
 }
+
+export function createPJDetails(data, personnage, jdrName) {
+  // Récupération de la section où seront ajoutées les statistiques
+  const section = document.getElementById('stats-details');
+
+  let globalSuccess = 0;
+  let globalFail = 0;
+
+  if (jdrName === "Aria" || jdrName === "Poudlard") {
+    data[jdrName]["dicesList"][personnage].forEach(element => {
+      if (element <= 5) {
+        globalSuccess ++;
+      }
+      else if (element >= 96) {
+        globalFail ++;
+      }
+    }) 
+  } else if (jdrName === "Pathfinder") {
+    data[jdrName]["dicesList"][personnage].forEach(element => {
+      if (element === 20) {
+        globalSuccess ++;
+      }
+      else if (element === 1) {
+        globalFail ++
+      }
+    })
+  }
+   
+}
