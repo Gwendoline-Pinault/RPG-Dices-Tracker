@@ -1,4 +1,4 @@
-import { createPJGlobalStat, getAvg, createGameStatInfos, createJDRPageContent } from './functions.js';
+import { createPJGlobalStat, createGameStatInfos, createJDRPageContent } from './functions.js';
 
 // Récupération des données stockées dans le JSON
 const data = await fetch('/program/data.json')
