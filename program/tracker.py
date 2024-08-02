@@ -85,6 +85,7 @@ def Stats(personnage) :
   globalAvg = round(stat.mean(sortedMedianArray))
   data[campagne]["globalAvg"][personnage] = globalAvg
   
+  # Ajout des données créées au fichier
   data[campagne]["games"][date][personnage] = data_save_json
 
 
