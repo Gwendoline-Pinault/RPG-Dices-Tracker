@@ -73,13 +73,17 @@ def Stats(personnage) :
 
   # Met à jour la moyenne générale des joueurs
   for die in game:
-    data[campagne]["globalAvg"][personnage].append(die)
+    data[campagne]["dicesList"][personnage].append(die)
 
   # Met à jour la médiane globale
-  medianArray = data[campagne]["globalAvg"][personnage]
+  medianArray = data[campagne]["dicesList"][personnage]
   sortedMedianArray = sorted(medianArray)
   globalMedian = round(stat.median(sortedMedianArray))
   data[campagne]["globalMedian"][personnage] = globalMedian
+
+  # Met à jour la moyenne globale
+  globalAvg = round(stat.mean(sortedMedianArray))
+  data[campagne]["globalAvg"][personnage] = globalAvg
   
   data[campagne]["games"][date][personnage] = data_save_json
 
