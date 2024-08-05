@@ -7,7 +7,7 @@
  * @param {array} globalAvgArray tableau contenant la liste des dés du personnages pour calculer le nombre de critiques
  * @param {int} globalMedian médiane globale du personnage calculée préalablement
  */
-export function createPJGlobalStat(personnage, section, game, globalAvg, globalAvgArray, globalMedian) {
+export function createPJGlobalStat(data, personnage, section, game, globalAvg, globalAvgArray, globalMedian) {
   let globalSuccess = 0;
   let globalFail = 0;
 
@@ -61,9 +61,9 @@ export function createPJGlobalStat(personnage, section, game, globalAvg, globalA
   pjMedian.textContent = "Médiane : " + globalMedian;
   pjMedian.className = "dice-info";
 
-  const pjLink = document.createElement('a');
+  const pjLink = document.createElement('button');
   pjLink.className = game + "-button link-button";
-  pjLink.href = "/pages/stats-personnage.html";
+  // pjLink.href = "/pages/stats-personnage.html";
   pjLink.textContent = "Plus d'infos";
 
   if (isNaN(globalAvg)) {
@@ -103,7 +103,11 @@ export function createPJGlobalStat(personnage, section, game, globalAvg, globalA
   thisArticle.append(pjMedian);
 
   // Le button n'est pas encore implémenté
-  /* thisArticle.append(pjLink); */
+  thisArticle.append(pjLink);
+
+  pjLink.addEventListener("click", (event) => {
+    createPJDetails(data, personnage, jdrName, jdr)
+  })
 }
 
 /**
@@ -241,7 +245,7 @@ export function createJDRPageContent(data, jdr, jdrName) {
     const globalAvg = data[jdrName]["globalAvg"][personnage];
 
     // création du récap du personnage avec la moyenne générale
-    createPJGlobalStat(personnage, recapSection, jdr, globalAvg, globalAvgArray, globalMedian);
+    createPJGlobalStat(data, personnage, recapSection, jdr, globalAvg, globalAvgArray, globalMedian);
   }
 
   // Décompte du nombre de parties
@@ -256,10 +260,11 @@ export function createJDRPageContent(data, jdr, jdrName) {
   });
 }
 
-export function createPJDetails(data, personnage, jdrName) {
+export function createPJDetails(data, personnage, jdrName, jdr) {
   // Récupération de la section où seront ajoutées les statistiques
   const section = document.getElementById('stats-details');
 
+  // Calcul des critiques 
   let globalSuccess = 0;
   let globalFail = 0;
 
@@ -278,9 +283,14 @@ export function createPJDetails(data, personnage, jdrName) {
         globalSuccess ++;
       }
       else if (element === 1) {
-        globalFail ++
+        globalFail ++;
       }
     })
   }
-   
+
+  // Ajoute le nom du personnage en titre
+  const h1Title = document.getElementById('personnage-name');
+  h1Title.textContent = personnage;
+  h1Title.classList.add(`${jdr}-color`);
+  
 }

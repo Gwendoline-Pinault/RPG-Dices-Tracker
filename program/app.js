@@ -1,4 +1,4 @@
-import { createPJGlobalStat, createGameStatInfos, createJDRPageContent } from './functions.js';
+import { createPJGlobalStat, createGameStatInfos, createJDRPageContent, createPJDetails } from './functions.js';
 
 // Récupération des données stockées dans le JSON
 const data = await fetch('/program/data.json')
@@ -9,6 +9,7 @@ const data = await fetch('/program/data.json')
 const ariaPage = document.getElementById('aria-page');
 const hogwardsPage = document.getElementById('hogwards-page');
 const pathfinderPage = document.getElementById('pathfinder-page');
+const statsPage = document.getElementById('stats-details-page');
 let jdrName = "";
 let jdr = "";
 
@@ -16,15 +17,17 @@ let jdr = "";
 if (ariaPage != null) {
   jdr = "aria";
   jdrName = "Aria";
+  createJDRPageContent(data, jdr, jdrName);
 }
 else if (hogwardsPage != null) {
   jdr = "hogwards";
   jdrName = "Poudlard";
+  createJDRPageContent(data, jdr, jdrName);
 }
 else if (pathfinderPage != null) {
   jdr = "pathfinder";
   jdrName = "Pathfinder";
+  createJDRPageContent(data, jdr, jdrName);
 }
 
-createJDRPageContent(data, jdr, jdrName);
-
+//createJDRPageContent(data, jdr, jdrName);
