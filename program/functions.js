@@ -12,12 +12,23 @@ export function createPJGlobalStat(personnage, section, game, globalAvg, globalA
   let globalFail = 0;
 
   globalAvgArray.forEach(element => {
-    if (element <= 5) {
-      globalSuccess ++;
+    if (game === "aria" || game === "hogwards") {
+      if (element <= 5) {
+        globalSuccess ++;
+      }
+      else if (element >= 96) {
+        globalFail ++;
+      }
     }
-    else if (element >= 96) {
-      globalFail ++;
+    else if (game === "pathfinder") {
+      if (element === 1) {
+        globalFail ++;
+      }
+      else if (element === 20) {
+        globalSuccess ++;
+      }
     }
+    
   })
 
   const pjArticle = document.createElement('article');
