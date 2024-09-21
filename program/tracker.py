@@ -81,7 +81,7 @@ def Stats(personnage):
         case "Ulric":
             dicesArray = Ulric
 
-    # Calcul du nombre de critiques en fonction de la valeur des dés 
+    # Calcul du nombre de critiques en fonction de la valeur des dés
     # du personnage stockés dans le fichier dices.py
     for dice in dicesArray:
         if campagne == "Aria" or campagne == "Poudlard":
