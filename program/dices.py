@@ -1,8 +1,15 @@
-Gwen = []
-Jean = []
+# Aria
+Melinda = []
+Efard = []
 Artyom = []
 
+# Pathfinder
+Callum = []
+Karl = []
 Elora = []
 Ulric = []
 
-Manon = []
+# Poudlard
+Kelly = []
+Michael = []
+Eva = []
