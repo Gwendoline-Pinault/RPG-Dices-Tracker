@@ -53,9 +53,9 @@ a {
   background-size: cover;
 }
 
-.hogwards-icon {
+.poudlard-icon {
   text-align: center;
-  background-image: url("/images/hogwards.jpg"); 
+  background-image: url("/images/poudlard.jpg"); 
   background-position: center;
   background-size: cover;
 }
@@ -200,31 +200,31 @@ a {
   margin: 0;
 }
 
-.hogwards-color {
+.poudlard-color {
   background-color: var(--medium-blue);
   color: var(--text-light);
 }
 
-.hogwards-hover {
+.poudlard-hover {
   box-shadow: 0 0 10px 6px var(--dark-blue-hover);
   background-color: var(--dark-blue-hover);
 }
 
-.hogwards-hover:hover {
+.poudlard-hover:hover {
   box-shadow: 0 0 10px 5px var(--blue);
 }
 
-.hogwards-button {
+.poudlard-button {
   background-color: var(--dark-blue);
   color: var(--text-light);
 }
 
-.hogwards-article {
+.poudlard-article {
   border: 1px solid var(--medium-blue);
   margin-bottom: 20px;
 }
 
-.hogwards-color-title {
+.poudlard-color-title {
   background-color: var(--medium-blue);
   border-radius: 3px 3px 0 0;
   color: var(--text-light);
