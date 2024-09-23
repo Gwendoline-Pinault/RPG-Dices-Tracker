@@ -12,7 +12,7 @@ export function createPJGlobalStat(personnage, section, game, globalAvg, globalA
   let globalFail = 0;
 
   globalAvgArray.forEach(element => {
-    if (game === "aria" || game === "hogwards") {
+    if (game === "aria" || game === "poudlard") {
       if (element <= 5) {
         globalSuccess ++;
       }
@@ -74,7 +74,7 @@ export function createPJGlobalStat(personnage, section, game, globalAvg, globalA
   }
 
   // dés 100 sur le système Aria
-  if (game === "aria" || game === "hogwards") {
+  if (game === "aria" || game === "poudlard") {
     if (globalAvg > 50) {
       pjStat.classList.add("fail");
     }
@@ -148,7 +148,7 @@ export function createGameStatInfos(section, date, game, jdrGame) {
     medianSpan.textContent = jdrGame[date][personnage]["median"];
 
     // dés 100 sur le système Aria
-    if (game === "aria" || game === "hogwards") {
+    if (game === "aria" || game === "poudlard") {
       if (jdrGame[date][personnage]["average"] > 50) {
         span.className = "fail";
       }
