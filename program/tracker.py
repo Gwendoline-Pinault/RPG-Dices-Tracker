@@ -8,7 +8,7 @@ from dices import Melinda, Efard, Artyom
 from dices import Kelly, Michael, Eva
 from dices import Callum, Karl, Elora, Ulric
 
-# # Lecture du fichier JSON et import des données
+# Lecture du fichier JSON et import des données
 # with open("data.json", 'r+', encoding='utf-8') as dataFile:
 #     data = json.load(dataFile)
 
