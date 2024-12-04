@@ -1,6 +1,6 @@
 # Aria
 Melinda = [85, 6, ]
-Efard = [73, ]
+Efard = [73, 29]
 Artyom = []
 
 # Pathfinder

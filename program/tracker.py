@@ -83,50 +83,60 @@ def Stats(personnage):
 
     # Calcul du nombre de critiques en fonction de la valeur des dés
     # du personnage stockés dans le fichier dices.py
-    for dice in dicesArray:
-        if campagne == "Aria" or campagne == "Poudlard":
-            if 1 <= dice <= 5:
-                crit += 1
-            elif 96 <= dice <= 100:
-                fail += 1
-        elif campagne == "Pathfinder":
-            if dice == 1:
-                fail += 1
-            elif dice == 20:
-                crit += 1
+    if (dicesArray != []):
+        for dice in dicesArray:
+            if campagne == "Aria" or campagne == "Poudlard":
+                if 1 <= dice <= 5:
+                    crit += 1
+                elif 96 <= dice <= 100:
+                    fail += 1
+            elif campagne == "Pathfinder":
+                if dice == 1:
+                    fail += 1
+                elif dice == 20:
+                    crit += 1
 
-    # Classe les dés dans l'ordre croissant
-    game = sorted(dicesArray)
+        # Classe les dés dans l'ordre croissant
+        game = sorted(dicesArray)
 
-    # Calcule la médiane des dés
-    median = round(stat.median(game))
+        # Calcule la médiane des dés
+        median = round(stat.median(game))
 
-    # Calcule la moyenne des dés arrondi à l'entier
-    moyenne = round(stat.mean(game))
+        # Calcule la moyenne des dés arrondi à l'entier
+        moyenne = round(stat.mean(game))
 
-    # Ajoute les données créées au JSON existant
-    data_save_json = {
-        "dices": game,
-        "average": moyenne,
-        "median": median,
-        "success": crit,
-        "fail": fail
-    }
+        # Ajoute les données créées au JSON existant
+        data_save_json = {
+            "dices": game,
+            "average": moyenne,
+            "median": median,
+            "success": crit,
+            "fail": fail
+        }
 
-    # Met à jour la moyenne générale des joueurs
-    for die in game:
-        data[campagne]["dicesList"][personnage].append(die)
+        # Met à jour la moyenne générale des joueurs
+        for die in game:
+            data[campagne]["dicesList"][personnage].append(die)
 
-    # Met à jour la médiane globale
-    medianArray = data[campagne]["dicesList"][personnage]
-    sortedMedianArray = sorted(medianArray)
-    globalMedian = round(stat.median(sortedMedianArray))
-    data[campagne]["globalMedian"][personnage] = globalMedian
+        # Met à jour la médiane globale
+        medianArray = data[campagne]["dicesList"][personnage]
+        sortedMedianArray = sorted(medianArray)
+        globalMedian = round(stat.median(sortedMedianArray))
+        data[campagne]["globalMedian"][personnage] = globalMedian
 
-    # Met à jour la moyenne globale
-    globalAvg = round(stat.mean(sortedMedianArray))
-    data[campagne]["globalAvg"][personnage] = globalAvg
-
+        # Met à jour la moyenne globale
+        globalAvg = round(stat.mean(sortedMedianArray))
+        data[campagne]["globalAvg"][personnage] = globalAvg
+    
+    elif (dicesArray == []):
+        data_save_json = {
+            "dices": [],
+            "average": None,
+            "median": None,
+            "success": crit,
+            "fail": fail
+        }
+    
     # Ajout des données créées au fichier
     data[campagne]["games"][date][personnage] = data_save_json
 
