@@ -3,3 +3,4 @@ __pycache__/*
 /program/ancien_data.json
 /node_modules
 .DS_Store
+/program/data/old-*.json

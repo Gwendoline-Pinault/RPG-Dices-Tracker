@@ -211,7 +211,7 @@ export function createGameStatInfos(section, date, game, jdrGame) {
 }
 
 /**
- * Function  createJDRPageContent() : permet de générer le contenu des pages de JDR en appelant les différentes fonctions qui créent l'en-tête et la liste des parties. Cette fonction est générique et s'appliquent à tous les JDR. On récupère en entrée le nom de la page visionnnée par l'utilisateur pour générer les données associées.
+ * Function createJDRPageContent() : permet de générer le contenu des pages de JDR en appelant les différentes fonctions qui créent l'en-tête et la liste des parties. Cette fonction est générique et s'appliquent à tous les JDR. On récupère en entrée le nom de la page visionnnée par l'utilisateur pour générer les données associées.
  * @param {object} data contenu du fichier JSON récupéré dans un objet
  * @param {string} jdr Nom du JDR concerné pour la partie style (minuscules)
  * @param {string} jdrName Nom du JDR affiché sur le site et dans le JSON 
