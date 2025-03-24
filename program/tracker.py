@@ -37,7 +37,7 @@ else:
 match campagne:
     case "Aria":
         roleplayGame = AriaPersonnages
-        with open("data/aria.json", 'r+', encoding='utf-8') as dataFile:
+        with open("../localData/aria-local.json", 'r+', encoding='utf-8') as dataFile:
             data = json.load(dataFile)
     case "Pathfinder":
         roleplayGame = PathfinderPersonnages
@@ -148,7 +148,7 @@ for personnage in roleplayGame:
 # Remplacement des anciennes données par les nouvelles
 match campagne:
     case "Aria":
-        with open("data/aria.json", mode='w', encoding='utf-8') as nJson:
+        with open("../localData/aria-local.json", mode='w', encoding='utf-8') as nJson:
             json.dump(data, nJson)
     case "Pathfinder":
         with open("data/pathfinder.json", mode='w', encoding='utf-8') as nJson:

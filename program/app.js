@@ -22,8 +22,14 @@ else if (pathfinderPage != null) {
 }
 
 // Récupération des données stockées dans le JSON
-const data = await fetch(`/program/data/${jdr}.json`)
+if (jdr === 'aria') {
+  const data = await fetch(`/localData/aria-local.json`)
+  .then(response => response.json())
+  .catch((e) => { });
+} else {
+  const data = await fetch(`/program/data/${jdr}.json`)
     .then(response => response.json())
     .catch((e) => { });
+}
 
 createJDRPageContent(data, jdr, jdrName);
