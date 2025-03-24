@@ -23,7 +23,7 @@ else if (pathfinderPage != null) {
 
 // Récupération des données stockées dans le JSON
 if (jdr === 'aria') {
-  const data = await fetch(`/localData/aria-local.json`)
+  const data = await fetch(`data/aria-local.json`)
   .then(response => response.json())
   .catch((e) => { });
 } else {
