@@ -20,7 +20,7 @@ export function createPJGlobalStat(personnage, section, game, globalAvg, globalA
         globalFail ++;
       }
     }
-    else if (game === "pathfinder") {
+    else if (game === "pathfinder" || game === "goldensun") {
       if (element === 1) {
         globalFail ++;
       }
@@ -83,7 +83,7 @@ export function createPJGlobalStat(personnage, section, game, globalAvg, globalA
     }
   }
   // Dés 20 sur le système Pathfinder
-  else if (game === "pathfinder") {
+  else if (game === "pathfinder" || game === 'goldensun') {
     if (globalAvg < 10) {
       pjStat.classList.add("fail");
     }
@@ -167,7 +167,7 @@ export function createGameStatInfos(section, date, game, jdrGame) {
     }
 
     // Dés 20 sur le système Pathfinder
-    else if (game === "pathfinder") {
+    else if (game === "pathfinder" || game === "goldensun") {
       if (jdrGame[date][personnage]["average"] < 10) {
         span.className = "fail";
       }

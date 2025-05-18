@@ -17,6 +17,9 @@
   --text-dark: rgb(27, 27, 27);
   --bg-light: rgb(245, 251, 255);
   --white: rgb(255, 255, 255);
+  --light-red: rgb(255, 114, 114);
+  --red: rgb(221, 2, 2);
+  --dark-red: rgb(119, 3, 3);
 
   background-color: var(--bg-light);
   color: var(--text-light);
@@ -63,6 +66,13 @@ a {
 .pathfinder-icon {
   text-align: center;
   background-image: url("/images/pathfinder.jpg"); 
+  background-position: center;
+  background-size: cover;
+}
+
+.goldensun-icon {
+  text-align: center;
+  background-image: url("/images/goldensun.png"); 
   background-position: center;
   background-size: cover;
 }
@@ -298,6 +308,47 @@ a {
   color: var(--text-light);
   text-shadow: 2px 2px 2px var(--text-dark);
 }
+
+/* ---------------------------
+    GOLDEN SUN 
+*/
+.goldensun-article {
+  padding: 5px 10px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.goldensun-color {
+  background-color: var(--red);
+  color: var(--dark-red);
+}
+
+.goldensun-hover {
+  box-shadow: 0 0 10px 6px var(--dark-red);
+  background-color: var(--red);
+}
+
+.goldensun-hover:hover {
+  box-shadow: 0 0 10px 5px var(--red);
+}
+
+.goldensun-button {
+  background-color: var(--dark-red);
+  color: var(--light-red);
+}
+
+.goldensun-color-title {
+  background-color: var(--dark-red);
+  color: var(--light-red);
+  border-radius: 3px 3px 0 0;
+  text-shadow: 2px 2px 2px var(--dark-red);
+}
+
+.goldensun-article {
+  border: 1px solid var(--dark-red);
+  margin-bottom: 20px;
+}
+/* --------------------------------------------- */
 
 .link-button {
   border-radius: 8px;

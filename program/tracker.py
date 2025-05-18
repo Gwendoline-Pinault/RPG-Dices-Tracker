@@ -4,9 +4,7 @@ un récapitulatif dans un fichier texte. """
 
 import statistics as stat
 import json
-from dices import Melinda, Efard, Artyom
-from dices import Kelly, Michael, Eva
-from dices import Callum, Karl, Elora, Ulric
+from dices import *
 
 # Lecture du fichier JSON et import des données
 # with open("data.json", 'r+', encoding='utf-8') as dataFile:
@@ -16,6 +14,7 @@ from dices import Callum, Karl, Elora, Ulric
 AriaPersonnages = ["Melinda", "Efard", "Artyom"]
 PoudlardPersonnages = ["Kelly", "Michael", "Eva"]
 PathfinderPersonnages = ["Callum", "Elora", "Karl", "Ulric"]
+GoldenSunPersonnages = ["Takeshi", "Tepes", "Rawiri"]
 
 # Début du programme
 date = input("Date de la partie : ")
@@ -29,6 +28,8 @@ elif (campagne == "Poudlard"):
     roleplayGame = PoudlardPersonnages
 elif (campagne == "Pathfinder"):
     roleplayGame = PathfinderPersonnages
+elif (campagne == "GoldenSun"):
+    roleplayGame = GoldenSunPersonnages
 else:
     print("Erreur dans la détermination de la campagne")
     campagne = input("Quel JDR ? ")
@@ -46,6 +47,10 @@ match campagne:
     case "Poudlard":
         roleplayGame = PoudlardPersonnages
         with open("data.json", 'r+', encoding='utf-8') as dataFile:
+            data = json.load(dataFile)
+    case "GoldenSun":
+        roleplayGame = GoldenSunPersonnages
+        with open("data/goldensun.json", 'r+', encoding='utf-8') as dataFile:
             data = json.load(dataFile)
 
 # Création de l'objet partie du jour pour insérer les données générées
@@ -80,6 +85,12 @@ def Stats(personnage):
             dicesArray = Karl
         case "Ulric":
             dicesArray = Ulric
+        case "Takeshi":
+            dicesArray = Takeshi
+        case "Tepes":
+            dicesArray = Tepes
+        case "Rawiri":
+            dicesArray = Rawiri
 
     # Calcul du nombre de critiques en fonction de la valeur des dés
     # du personnage stockés dans le fichier dices.py
@@ -90,7 +101,7 @@ def Stats(personnage):
                     crit += 1
                 elif 96 <= dice <= 100:
                     fail += 1
-            elif campagne == "Pathfinder":
+            elif campagne == "Pathfinder" or campagne == "GoldenSun":
                 if dice == 1:
                     fail += 1
                 elif dice == 20:
@@ -152,6 +163,9 @@ match campagne:
             json.dump(data, nJson)
     case "Pathfinder":
         with open("data/pathfinder.json", mode='w', encoding='utf-8') as nJson:
+            json.dump(data, nJson)
+    case "GoldenSun":
+        with open("data/goldensun.json", mode='w', encoding='utf-8') as nJson:
             json.dump(data, nJson)
 
 # Message confirmant que le programme est terminé.

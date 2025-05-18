@@ -4,6 +4,7 @@ import { createPJGlobalStat, createGameStatInfos, createJDRPageContent } from '.
 const ariaPage = document.getElementById('aria-page');
 const poudlardPage = document.getElementById('poudlard-page');
 const pathfinderPage = document.getElementById('pathfinder-page');
+const goldenSunPage = document.getElementById('goldensun-page');
 let jdrName = "";
 let jdr = "";
 
@@ -19,6 +20,10 @@ else if (poudlardPage != null) {
 else if (pathfinderPage != null) {
     jdr = "pathfinder";
     jdrName = "Pathfinder";
+}
+else if (goldenSunPage != null) {
+  jdr = "goldensun";
+  jdrName = "Golden Sun";
 }
 
 // Récupération des données stockées dans le JSON
