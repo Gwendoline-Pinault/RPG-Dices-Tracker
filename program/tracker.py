@@ -28,7 +28,7 @@ elif (campagne == "Poudlard"):
     roleplayGame = PoudlardPersonnages
 elif (campagne == "Pathfinder"):
     roleplayGame = PathfinderPersonnages
-elif (campagne == "GoldenSun"):
+elif (campagne == "Golden Sun"):
     roleplayGame = GoldenSunPersonnages
 else:
     print("Erreur dans la détermination de la campagne")
@@ -48,7 +48,7 @@ match campagne:
         roleplayGame = PoudlardPersonnages
         with open("data.json", 'r+', encoding='utf-8') as dataFile:
             data = json.load(dataFile)
-    case "GoldenSun":
+    case "Golden Sun":
         roleplayGame = GoldenSunPersonnages
         with open("data/goldensun.json", 'r+', encoding='utf-8') as dataFile:
             data = json.load(dataFile)
@@ -101,7 +101,7 @@ def Stats(personnage):
                     crit += 1
                 elif 96 <= dice <= 100:
                     fail += 1
-            elif campagne == "Pathfinder" or campagne == "GoldenSun":
+            elif campagne == "Pathfinder" or campagne == "Golden Sun":
                 if dice == 1:
                     fail += 1
                 elif dice == 20:
@@ -164,7 +164,7 @@ match campagne:
     case "Pathfinder":
         with open("data/pathfinder.json", mode='w', encoding='utf-8') as nJson:
             json.dump(data, nJson)
-    case "GoldenSun":
+    case "Golden Sun":
         with open("data/goldensun.json", mode='w', encoding='utf-8') as nJson:
             json.dump(data, nJson)
 
