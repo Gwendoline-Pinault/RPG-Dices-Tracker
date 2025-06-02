@@ -522,7 +522,7 @@ a {
   }
 }
 
-@media (min-width: 701px) and (max-width: 1280px) {
+@media (min-width: 701px) {
   .pj-recap {
     width: 90%;
   }
