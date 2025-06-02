@@ -17,10 +17,10 @@
   --text-dark: rgb(27, 27, 27);
   --bg-light: rgb(245, 251, 255);
   --white: rgb(255, 255, 255);
-  --light-yellow: rgb(255, 233, 159);
-  --yellow: rgb(243, 207, 88);
-  --golden: rgb(214, 164, 0);
-  --dark-yellow: rgb(90, 69, 0);
+  --light-yellow: rgb(226, 192, 80);
+  --yellow: rgb(233, 194, 66);
+  --golden: rgb(161, 124, 0);
+  --dark-yellow: rgb(75, 58, 1);
 
   background-color: var(--bg-light);
   color: var(--text-light);
@@ -122,22 +122,16 @@ a {
   width: 100%;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-}
-
 .nav-item {
   text-decoration: none;
   font-weight: bold;
-  padding: 0 10px 3px 10px;
+  padding: 0 5px 3px 5px;
   margin-top: 10px;
   color: var(--text-light);
   text-shadow: 1px 1px 2px var(--dark-blue);
   cursor: pointer;
   font-size: 18px;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 
 /* 
@@ -312,6 +306,7 @@ a {
 
 /* ---------------------------
     GOLDEN SUN 
+    __________________________
 */
 .goldensun-article {
   padding: 5px 10px;
@@ -476,6 +471,12 @@ a {
   .pj-recap h3 {
     margin-top: 0;
   }
+
+  .navbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5px;
+  }
 }
 
 @media (min-width: 401px) and (max-width: 700px){
@@ -513,11 +514,23 @@ a {
   .pj-recap h3 {
     margin-top: 0;
   }
+
+  .navbar {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
 }
 
-@media (min-width: 701px) and (max-width: 1000px) {
+@media (min-width: 701px) and (max-width: 1280px) {
   .pj-recap {
     width: 90%;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
   }
 }
 
@@ -540,5 +553,12 @@ a {
 
   .pj-recap-crit p:first-child {
     margin-bottom: 5px;
-  }  
+  }
+
+  .navbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5px;
+    width: 100%;
+  }
 }
