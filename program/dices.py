@@ -1,7 +1,7 @@
 # Aria
-Melinda = []
-Efard = []
-Artyom = [80, ]
+Melinda = [23, 58, 1, 30, 3, 98, 94, 39, 89, ]
+Efard = [90, 26, ]
+Artyom = [80, 84, ]
 
 # Pathfinder
 Callum = []
