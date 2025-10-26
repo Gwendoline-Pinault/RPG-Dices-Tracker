@@ -248,6 +248,11 @@ export function createJDRPageContent(data, jdr, jdrName) {
   const NbGamesTitle = document.getElementById('nb-games');
   const NbGamesTitleSpan = document.createElement('span');
   NbGamesTitleSpan.textContent = jdrDates.length;
+
+  if (jdr == 'goldensun') {
+    NbGamesTitleSpan.textContent = jdrDates.length +1;
+  }
+
   NbGamesTitle.append(NbGamesTitleSpan);
 
   // Création de la liste des récap de chaque partie par personnage (du plus récent au plus ancien)
